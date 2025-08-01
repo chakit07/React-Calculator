@@ -1,16 +1,31 @@
-.body{
-  font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* App.module.css */
+
+.calculator {
+  max-width: 340px;
+  margin: 60px auto;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #031321, #041a30);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5),
+              inset 0 -2px 4px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 10px;
+  transition: transform 0.3s ease;
 }
 
-.calculator{
-  background-color: rgb(245, 207, 142);
-  border: 5px solid rgb(138, 98, 25);
-  border-radius: 20px;
-  width: 250px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+.calculator:hover {
+  transform: scale(1.01);
 }
+
+.calculator h2 {
+  text-align: center;
+  color: #ff4df2;
+  margin: 15px 0 5px;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px #ff4df2, 0 0 12px #b300ff;
+  animation: glowText 2.5s ease-in-out infinite alternate;
+}
+
+

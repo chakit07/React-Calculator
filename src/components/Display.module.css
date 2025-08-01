@@ -1,6 +1,27 @@
-.display{
-  background-color: rgb(143, 111, 5);
-  margin: 10px;
-  width: 220px;
-  font-size: 50px; 
+/* Display.module.css */
+
+.displayWrapper {
+  background-color: #031321;
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: white;
+  text-align: right;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 120px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.display {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: right;
+  outline: none;
+  caret-color: transparent;
 }

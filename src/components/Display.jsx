@@ -1,12 +1,16 @@
 import styles from "./Display.module.css";
-const Display = ({ displayValue }) => {
+
+const Display = ({ expression, isError, isResult }) => {
+  let displayClass = styles.display;
+
+  if (isError) displayClass += ` ${styles.error}`;
+  else if (isResult) displayClass += ` ${styles.success}`;
+
   return (
-    <input
-      className={styles.display}
-      type="text"
-      value={displayValue}
-      readOnly
-    />
+    <div className={styles.displayWrapper}>
+      <input className={displayClass} type="text" value={expression} readOnly />
+    </div>
   );
 };
+
 export default Display;

@@ -4,16 +4,19 @@ import ButtonContainer from "./components/ButtonContainer";
 import Display from "./components/Display";
 
 function App() {
-  const [calVal, setCalval] = useState("");
-  const onButtonClick = (buttonText) => {
-    if (buttonText === "C") {
-      setCalval("");
-    } else if (buttonText === "=") {
-      const result = eval(calVal);
-      setCalval(result);
+  const [expression, setExpression] = useState("");
+  const handleButtonClick = (value) => {
+    if (value === "AC") setExpression("");
+    else if (value === "DEL") setExpression((prev) => prev.slice(0, -1));
+    else if (value === "=") {
+      try {
+        const result = Function('"use strict";return (' + expression + ")")();
+        setExpression(result.toString());
+      } catch {
+        setExpression("Error");
+      }
     } else {
-      const newDisplayValue = calVal + buttonText;
-      setCalval(newDisplayValue);
+      setExpression((prev) => prev + value);
     }
   };
 
@@ -21,8 +24,11 @@ function App() {
     <>
       <div className={styles.calculator}>
         <h2> React Calculator</h2>
-        <Display displayValue={calVal}></Display>
-        <ButtonContainer onButtonClick={onButtonClick}></ButtonContainer>
+        <Display expression={expression} />
+        <ButtonContainer
+          expression={expression}
+          setExpression={setExpression}
+        />
       </div>
     </>
   );
